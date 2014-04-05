@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Time-Recording Auto-Export (Tasker Plugin)</string>
+    <string name="app_name_short">Export Plugin</string>
+    <string name="export_start_date">Export start date</string>
+    <string name="export_end_date">Export end date</string>
+    <string name="automatic">Auto</string>
+    <string name="export_format">Export format</string>
+    <string-array name="export_formats">
+        <item>E1</item>
+        <item>E2</item>
+        <item>E3</item>
+        <item>E4</item>
+        <item>E5</item>
+        <item>E6</item>
+        <item>E7</item>
+        <item>E8</item>
+    </string-array>
+    <string-array name="export_types">
+        <item>XML</item>
+        <item>CSV</item>
+        <item>HTML</item>
+    </string-array>
+    <string name="export_type">Export type</string>
+    <string name="destination_file_path">Output file path</string>
+    <string name="browse">Browse</string>
+    <string name="export_to">Export to</string>
+    <string name="not_yet_implemented">This function is not yet implemented</string>
+    <string name="example_export_destination_path">e. g. /sdcard/temp/timerec_output.xml</string>
+    <string name="exported_to">exported to</string>
+    <string name="main_view_information_text">This is a tasker plugin, you should find me in the action menu under "Plugins".</string>
+
 </resources>

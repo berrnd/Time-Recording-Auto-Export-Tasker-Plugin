@@ -1,5 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">Zeiterfassung Auto-Export (Tasker Plugin)</string>
+    <string name="export_start_date">Export ab</string>
+    <string name="export_end_date">Export bis</string>
+    <string name="automatic">Automatisch</string>
+    <string name="export_format">Export-Format</string>
+    <string name="export_type">Export-Typ</string>
+    <string name="destination_file_path">Ausgabedatei-Pfad</string>
+    <string name="export_to">Export nach</string>
+    <string name="not_yet_implemented">Diese Funktion ist noch nicht implementiert</string>
+    <string name="example_export_destination_path">z. B. /sdcard/temp/timerec_output.xml</string>
+    <string name="exported_to">exportiert to</string>
+    <string name="main_view_information_text">Dies ist ein Tasker-Plugin, es sollte unter "Plugins" im Action-Menü zu finden sein.</string>
 
 </resources>

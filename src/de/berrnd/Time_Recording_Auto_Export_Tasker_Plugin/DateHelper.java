@@ -1,5 +1,9 @@
 package de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin;
 
+import android.widget.DatePicker;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -10,5 +14,39 @@ public class DateHelper {
         cal.setTime(date);
         cal.add(Calendar.DATE, days);
         return cal.getTime();
+    }
+
+    public static int getDatePart(Date date, int part) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(part);
+    }
+
+    public static Date getDateFromDatePicker(DatePicker datePicker){
+        int day = datePicker.getDayOfMonth();
+        int month = datePicker.getMonth();
+        int year =  datePicker.getYear();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, day);
+
+        return calendar.getTime();
+    }
+
+    public static String toIsoDateString(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(date);
+    }
+
+    public static Date fromIsoDate(String isoDate) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date date = new Date();
+        try {
+            date = dateFormat.parse(isoDate);
+        }
+        catch (ParseException ex) { }
+
+        return date;
     }
 }

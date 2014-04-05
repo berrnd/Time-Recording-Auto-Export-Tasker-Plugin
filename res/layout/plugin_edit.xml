@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:baselineAligned="false">
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView" android:fillViewport="false">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/export_start_date"
+                android:id="@+id/textView_label_exportStartDate" android:layout_gravity="center_horizontal"/>
+        <DatePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/datePicker_exportStartDate" android:calendarViewShown="false" android:clickable="false"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/automatic"
+                android:id="@+id/checkBox_exportStartDateAuto" android:layout_gravity="center_horizontal"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/export_end_date"
+                android:id="@+id/textView_label_exportEndDate" android:layout_gravity="center_horizontal"/>
+        <DatePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/datePicker_exportEndDate" android:layout_gravity="center_horizontal" android:calendarViewShown="false"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/automatic"
+                android:id="@+id/checkBox_exportEndDateAuto" android:layout_gravity="center_horizontal"
+                android:singleLine="false"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/export_format"
+                android:id="@+id/textView_label_exportFormat" android:layout_gravity="center_horizontal"/>
+        <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_exportFormat" android:layout_gravity="center"
+                android:spinnerMode="dialog" android:entries="@array/export_formats" android:focusable="true"
+                android:gravity="center"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/export_type"
+                android:id="@+id/textView_label_exportType" android:layout_gravity="center_horizontal"/>
+        <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_exportType" android:layout_gravity="center"
+                android:entries="@array/export_types" android:textAlignment="center" android:spinnerMode="dialog"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/destination_file_path"
+                android:layout_gravity="center_horizontal" android:id="@+id/textView_label_destinationFilePath"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="58dp">
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editText_destinationFilePath" android:layout_weight="1"
+                    android:hint="@string/example_export_destination_path"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/browse"
+                    android:id="@+id/button_browseDestinationFile"/>
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+    <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/automatic"
+              android:id="@+id/checkBox" android:layout_gravity="right"/>
+</LinearLayout>

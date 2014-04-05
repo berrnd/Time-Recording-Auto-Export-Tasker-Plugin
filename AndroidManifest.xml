@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin"
-          android:versionCode="1"
-          android:versionName="0.1">
+          android:versionCode="2"
+          android:versionName="0.2"
+          android:installLocation="internalOnly">
+    <supports-screens
+            android:anyDensity="true"
+            android:largeScreens="true"
+            android:normalScreens="true"
+            android:smallScreens="true"
+            android:xlargeScreens="true" />
     <uses-sdk android:minSdkVersion="14"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
-        <activity android:name="MainActivity"
-                  android:label="@string/app_name">
+    <application android:label="@string/app_name_short"
+                 android:icon="@drawable/ic_launcher"
+                 android:hardwareAccelerated="true">
+        <activity android:name=".MainActivity"
+                  android:label="@string/app_name"
+                  android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <receiver android:name=".ExportReceiver">
+        <activity android:name=".PluginEditActivity"
+                android:label="@string/app_name"
+                android:icon="@drawable/ic_launcher"
+                android:exported="true">
             <intent-filter>
-                <action android:name="de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin.EXPORT"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="text/plain"/>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".PluginReceiver"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
             </intent-filter>
         </receiver>
     </application>
