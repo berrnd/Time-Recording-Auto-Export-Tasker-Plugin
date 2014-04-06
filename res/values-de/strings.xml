@@ -11,7 +11,9 @@
     <string name="export_to">Export nach</string>
     <string name="not_yet_implemented">Diese Funktion ist noch nicht implementiert</string>
     <string name="example_export_destination_path">z. B. /sdcard/temp/timerec_output.xml</string>
-    <string name="exported_to">exportiert to</string>
+    <string name="exported_to">exportiert nach</string>
     <string name="main_view_information_text">Dies ist ein Tasker-Plugin, es sollte unter "Plugins" im Action-Menü zu finden sein.</string>
+    <string name="export_start_date_auto_info">Wenn ausgewählt, ist das Startdatum das letzte Exportdatum + 1 Tag.</string>
+    <string name="export_end_date_auto_info">Wenn ausgewählt, ist das Enddatum heute.</string>
 
 </resources>

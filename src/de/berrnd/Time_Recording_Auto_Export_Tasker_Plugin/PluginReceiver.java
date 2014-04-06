@@ -24,8 +24,8 @@ public class PluginReceiver extends BroadcastReceiver {
         String exportEndDate = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_END_DATE);
         boolean exportStartDateAuto = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_START_DATE_AUTO);
         boolean exportEndDateAuto = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_END_DATE_AUTO);
-        String exportFormat = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_FORMAT).toLowerCase();
-        String exportType = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_TYPE).toLowerCase();
+        String exportFormat = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_FORMAT);
+        String exportType = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_TYPE);
         String destinationFilePath = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_DESTINATION_FILE_PATH);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -43,7 +43,7 @@ public class PluginReceiver extends BroadcastReceiver {
             exportEndDate = dateFormat.format(new Date());
 
         this.doExport(context, exportStartDate, exportEndDate, exportType, exportFormat, destinationFilePath);
-        Toast.makeText(context, String.format("%s %s %s", exportType, context.getResources().getString(R.string.exported_to), destinationFilePath), Toast.LENGTH_LONG).show();
+        Toast.makeText(context, String.format("%s %s %s", exportFormat, context.getResources().getString(R.string.exported_to), destinationFilePath), Toast.LENGTH_LONG).show();
 
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(Constants.SETTING_LAST_EXPORT, exportEndDate);
@@ -59,8 +59,8 @@ public class PluginReceiver extends BroadcastReceiver {
         Intent intent = new Intent("com.dynamicg.timerecording.DATA_EXPORT");
         intent.putExtra("com.dynamicg.timerecording.DATE_FROM", dateFrom);
         intent.putExtra("com.dynamicg.timerecording.DATE_TO", dateTo);
-        intent.putExtra("com.dynamicg.timerecording.EXPORT_TYPE", exportType);
-        intent.putExtra("com.dynamicg.timerecording.EXPORT_FORMAT", exportFormat);
+        intent.putExtra("com.dynamicg.timerecording.EXPORT_TYPE", exportType.toLowerCase());
+        intent.putExtra("com.dynamicg.timerecording.EXPORT_FORMAT", exportFormat.toLowerCase());
 
         final String exportFilePath = "com.dynamicg.timerecording.FILE";
 

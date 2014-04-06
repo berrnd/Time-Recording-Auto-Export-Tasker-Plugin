@@ -7,7 +7,7 @@
     <string name="export_end_date">Export end date</string>
     <string name="automatic">Auto</string>
     <string name="export_format">Export format</string>
-    <string-array name="export_formats">
+    <string-array name="export_types">
         <item>E1</item>
         <item>E2</item>
         <item>E3</item>
@@ -17,7 +17,7 @@
         <item>E7</item>
         <item>E8</item>
     </string-array>
-    <string-array name="export_types">
+    <string-array name="export_formats">
         <item>XML</item>
         <item>CSV</item>
         <item>HTML</item>
@@ -30,5 +30,7 @@
     <string name="example_export_destination_path">e. g. /sdcard/temp/timerec_output.xml</string>
     <string name="exported_to">exported to</string>
     <string name="main_view_information_text">This is a tasker plugin, you should find me in the action menu under "Plugins".</string>
+    <string name="export_start_date_auto_info">If this is checked, start date will be last export date + 1 day.</string>
+    <string name="export_end_date_auto_info">If this is checked, end date will be today.</string>
 
 </resources>

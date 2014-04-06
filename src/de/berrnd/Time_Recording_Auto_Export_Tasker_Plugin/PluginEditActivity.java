@@ -54,20 +54,20 @@ public class PluginEditActivity extends Activity {
             }
         });
 
-        CheckBox exportStartDateAuto = ((CheckBox)findViewById(R.id.checkBox_exportStartDateAuto));
-        exportStartDateAuto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        CheckBox exportStartDateAutoCheckBox = ((CheckBox)findViewById(R.id.checkBox_exportStartDateAuto));
+        exportStartDateAutoCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                DatePicker datePicker = ((DatePicker)findViewById(R.id.datePicker_exportStartDate));
+                DatePicker datePicker = ((DatePicker) findViewById(R.id.datePicker_exportStartDate));
                 datePicker.setEnabled(!isChecked);
             }
         });
 
-        CheckBox exportEndDateAuto = ((CheckBox)findViewById(R.id.checkBox_exportEndDateAuto));
-        exportEndDateAuto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        CheckBox exportEndDateAutoCheckBox = ((CheckBox)findViewById(R.id.checkBox_exportEndDateAuto));
+        exportEndDateAutoCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                DatePicker datePicker = ((DatePicker)findViewById(R.id.datePicker_exportEndDate));
+                DatePicker datePicker = ((DatePicker) findViewById(R.id.datePicker_exportEndDate));
                 datePicker.setEnabled(!isChecked);
             }
         });
@@ -84,7 +84,7 @@ public class PluginEditActivity extends Activity {
         final String exportType = ((Spinner)findViewById(R.id.spinner_exportType)).getSelectedItem().toString();
         final String destinationFilePath = ((EditText)findViewById(R.id.editText_destinationFilePath)).getText().toString();
 
-        final String blurb = String.format("%s %s %s", exportType, getResources().getString(R.string.export_to), destinationFilePath);
+        final String blurb = String.format("%s %s %s", exportFormat, getResources().getString(R.string.export_to), destinationFilePath);
 
         final Intent resultIntent = new Intent();
         final Bundle resultBundle = new Bundle();
