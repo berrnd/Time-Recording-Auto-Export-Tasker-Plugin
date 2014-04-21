@@ -55,7 +55,7 @@ public class PluginReceiver extends BroadcastReceiver {
         //DATE_FROM yyyy-mm-dd
         //DATE_TO yyyy-mm-dd
         //EXPORT_TYPE [e1-e6]
-        //EXPORT_FORMAT [csv, html, xml]
+        //EXPORT_FORMAT [csv, html, xml, xls]
 
         Intent intent = new Intent("com.dynamicg.timerecording.DATA_EXPORT");
         intent.putExtra("com.dynamicg.timerecording.DATE_FROM", dateFrom);

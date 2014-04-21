@@ -32,6 +32,7 @@
         <item>XML</item>
         <item>CSV</item>
         <item>HTML</item>
+        <item>XLS</item>
     </string-array>
     <string name="export_format_default">XML</string>
 
