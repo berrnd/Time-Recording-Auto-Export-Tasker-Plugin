@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class PluginReceiver extends BroadcastReceiver {
+
     public void onReceive(Context context, Intent intent) {
         SharedPreferences settings = context.getSharedPreferences(Constants.SHARED_SETTINGS_COMMON, Context.MODE_PRIVATE);
         String lastExport = settings.getString(Constants.SETTING_LAST_EXPORT, DateHelper.toIsoDateString(new Date()));
@@ -83,4 +84,5 @@ public class PluginReceiver extends BroadcastReceiver {
         context.sendOrderedBroadcast(intent, null, resultReceiver
                 , null, Activity.RESULT_OK, null, null);
     }
+
 }

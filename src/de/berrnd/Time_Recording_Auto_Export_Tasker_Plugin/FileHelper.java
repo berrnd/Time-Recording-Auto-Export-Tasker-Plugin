@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 
 public class FileHelper {
+
     public static void copyFile(File sourceFile, File destinationFile) throws IOException {
         FileInputStream inStream = new FileInputStream(sourceFile);
         FileOutputStream outStream = new FileOutputStream(destinationFile);
@@ -16,4 +17,5 @@ public class FileHelper {
         inStream.close();
         outStream.close();
     }
+
 }

@@ -1,21 +1,25 @@
 package de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.*;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 
-import java.util.Calendar;
-import java.util.Date;
+public class PluginEditActivity extends PreferenceActivity {
 
-public class PluginEditActivity extends Activity {
+    private SharedPreferences PluginPreferences;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.plugin_edit);
+
+        this.getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, new PluginEditPreferencesFragment())
+                .commit();
+
+        this.PluginPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         final Bundle pluginBundle = getIntent().getBundleExtra("com.twofortyfouram.locale.intent.extra.BUNDLE");
-
         if (pluginBundle != null) {
             final String exportStartDate = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_START_DATE);
             final String exportEndDate = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_END_DATE);
@@ -25,64 +29,29 @@ public class PluginEditActivity extends Activity {
             final String exportType = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_TYPE);
             final String destinationFilePath = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_DESTINATION_FILE_PATH);
 
-            Date exportStartDateAsDate = DateHelper.fromIsoDate(exportStartDate);
-            Date exportEndDateAsDate = DateHelper.fromIsoDate(exportEndDate);
-
-            ((DatePicker)findViewById(R.id.datePicker_exportStartDate)).updateDate(
-                    DateHelper.getDatePart(exportStartDateAsDate, Calendar.YEAR),
-                    DateHelper.getDatePart(exportStartDateAsDate, Calendar.MONTH),
-                    DateHelper.getDatePart(exportStartDateAsDate, Calendar.DAY_OF_MONTH));
-            ((DatePicker)findViewById(R.id.datePicker_exportEndDate)).updateDate(
-                    DateHelper.getDatePart(exportEndDateAsDate, Calendar.YEAR),
-                    DateHelper.getDatePart(exportEndDateAsDate, Calendar.MONTH),
-                    DateHelper.getDatePart(exportEndDateAsDate, Calendar.DAY_OF_MONTH));
-
-            ((CheckBox)findViewById(R.id.checkBox_exportStartDateAuto)).setChecked(exportStartDateAuto);
-            ((CheckBox)findViewById(R.id.checkBox_exportEndDateAuto)).setChecked(exportEndDateAuto);
-
-            SpinnerHelper.SetSpinnerSelectionByValue(((Spinner)findViewById(R.id.spinner_exportFormat)), exportFormat);
-            SpinnerHelper.SetSpinnerSelectionByValue(((Spinner)findViewById(R.id.spinner_exportType)), exportType);
-
-            ((EditText)findViewById(R.id.editText_destinationFilePath)).setText(destinationFilePath, TextView.BufferType.EDITABLE);
+            PreferenceManager.setDefaultValues(this, R.xml.preferences_plugin_edit_activity, true);
+            SharedPreferences.Editor editor = this.PluginPreferences.edit();
+            editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE, exportStartDate);
+            editor.putBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO, exportStartDateAuto);
+            editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE, exportEndDate);
+            editor.putBoolean(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE_AUTO, exportEndDateAuto);
+            editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_FORMAT, exportFormat);
+            editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_TYPE, exportType);
+            editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_DESTINATION_FILE_PATH, destinationFilePath);
+            editor.commit();
         }
-
-        Button browseButton = (Button)findViewById(R.id.button_browseDestinationFile);
-        browseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), getResources().getString(R.string.not_yet_implemented), Toast.LENGTH_LONG).show();
-            }
-        });
-
-        CheckBox exportStartDateAutoCheckBox = ((CheckBox)findViewById(R.id.checkBox_exportStartDateAuto));
-        exportStartDateAutoCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                DatePicker datePicker = ((DatePicker) findViewById(R.id.datePicker_exportStartDate));
-                datePicker.setEnabled(!isChecked);
-            }
-        });
-
-        CheckBox exportEndDateAutoCheckBox = ((CheckBox)findViewById(R.id.checkBox_exportEndDateAuto));
-        exportEndDateAutoCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                DatePicker datePicker = ((DatePicker) findViewById(R.id.datePicker_exportEndDate));
-                datePicker.setEnabled(!isChecked);
-            }
-        });
     }
 
     @Override
     public void finish()
     {
-        final String exportStartDate = DateHelper.toIsoDateString(DateHelper.getDateFromDatePicker((DatePicker) findViewById(R.id.datePicker_exportStartDate)));
-        final String exportEndDate = DateHelper.toIsoDateString(DateHelper.getDateFromDatePicker((DatePicker) findViewById(R.id.datePicker_exportEndDate)));
-        final boolean exportStartDateAuto = ((CheckBox)findViewById(R.id.checkBox_exportStartDateAuto)).isChecked();
-        final boolean exportEndDateAuto = ((CheckBox)findViewById(R.id.checkBox_exportEndDateAuto)).isChecked();
-        final String exportFormat = ((Spinner)findViewById(R.id.spinner_exportFormat)).getSelectedItem().toString();
-        final String exportType = ((Spinner)findViewById(R.id.spinner_exportType)).getSelectedItem().toString();
-        final String destinationFilePath = ((EditText)findViewById(R.id.editText_destinationFilePath)).getText().toString();
+        final String exportStartDate = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE, "");
+        final String exportEndDate = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE, "");
+        final boolean exportStartDateAuto = this.PluginPreferences.getBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO, true);
+        final boolean exportEndDateAuto = this.PluginPreferences.getBoolean(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE_AUTO, true);
+        final String exportFormat = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_FORMAT, "");
+        final String exportType = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_TYPE, "");
+        final String destinationFilePath = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_DESTINATION_FILE_PATH, "");
 
         final String blurb = String.format("%s %s %s", exportFormat, getResources().getString(R.string.export_to), destinationFilePath);
 

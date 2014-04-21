@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DateHelper {
+
     public static Date addDays(Date date, int days)
     {
         Calendar cal = Calendar.getInstance();
@@ -49,4 +50,5 @@ public class DateHelper {
 
         return date;
     }
+
 }
