@@ -1,7 +1,5 @@
 package de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin;
 
-import android.widget.DatePicker;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,17 +19,6 @@ public class DateHelper {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         return cal.get(part);
-    }
-
-    public static Date getDateFromDatePicker(DatePicker datePicker){
-        int day = datePicker.getDayOfMonth();
-        int month = datePicker.getMonth();
-        int year =  datePicker.getYear();
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, day);
-
-        return calendar.getTime();
     }
 
     public static String toIsoDateString(Date date) {

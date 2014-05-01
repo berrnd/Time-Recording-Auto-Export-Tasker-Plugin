@@ -29,19 +29,11 @@ public class PluginReceiver extends BroadcastReceiver {
         String exportType = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_TYPE);
         String destinationFilePath = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_DESTINATION_FILE_PATH);
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-        if (exportStartDateAuto) {
-            Date lastExportDate;
-            try {
-                lastExportDate = dateFormat.parse(lastExport);
-                exportStartDate = dateFormat.format(DateHelper.addDays(lastExportDate, 1));
-            }
-            catch (ParseException ex) { }
-        }
+        if (exportStartDateAuto)
+            exportStartDate = DateHelper.toIsoDateString(DateHelper.addDays(DateHelper.fromIsoDate(lastExport), 1));
 
         if (exportEndDateAuto)
-            exportEndDate = dateFormat.format(new Date());
+            exportEndDate = DateHelper.toIsoDateString(new Date());
 
         this.doExport(context, exportStartDate, exportEndDate, exportType, exportFormat, destinationFilePath);
         Toast.makeText(context, String.format("%s %s %s", exportFormat, context.getResources().getString(R.string.exported_to), destinationFilePath), Toast.LENGTH_LONG).show();
@@ -81,8 +73,7 @@ public class PluginReceiver extends BroadcastReceiver {
             }
         };
 
-        context.sendOrderedBroadcast(intent, null, resultReceiver
-                , null, Activity.RESULT_OK, null, null);
+        context.sendOrderedBroadcast(intent, null, resultReceiver, null, Activity.RESULT_OK, null, null);
     }
 
 }

@@ -6,7 +6,7 @@ public class Constants {
     static final String SHARED_SETTINGS_COMMON = "SETTINGS";
     static final String SETTING_LAST_EXPORT = "LAST_EXPORT";
 
-    //Plugin Bundle
+    //Plugin bundle
     static final String BUNDLE_EXTRA_EXPORT_START_DATE = "BUNDLE_EXTRA_EXPORT_START_DATE";
     static final String BUNDLE_EXTRA_EXPORT_END_DATE = "BUNDLE_EXTRA_EXPORT_END_DATE";
     static final String BUNDLE_EXTRA_EXPORT_START_DATE_AUTO = "BUNDLE_EXTRA_EXPORT_START_DATE_AUTO";

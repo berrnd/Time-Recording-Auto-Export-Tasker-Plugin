@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">Time-Recording Auto-Export (Tasker Plugin)</string>
-    <string name="app_name_short">Export Plugin</string>
+    <string name="main_activity_label">Time-Recording Export Plugin</string>
+    <string name="plugin_name">Time-Recording Export</string>
     <string name="export_start_date">Export start date</string>
     <string name="export_end_date">Export end date</string>
     <string name="automatic">Auto</string>

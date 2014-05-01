@@ -13,10 +13,7 @@ public class PluginEditActivity extends PreferenceActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new PluginEditPreferencesFragment())
-                .commit();
-
+        PreferenceManager.setDefaultValues(this, R.xml.plugin_edit_activity, true);
         this.PluginPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         final Bundle pluginBundle = getIntent().getBundleExtra("com.twofortyfouram.locale.intent.extra.BUNDLE");
@@ -29,7 +26,6 @@ public class PluginEditActivity extends PreferenceActivity {
             final String exportType = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_TYPE);
             final String destinationFilePath = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_DESTINATION_FILE_PATH);
 
-            PreferenceManager.setDefaultValues(this, R.xml.preferences_plugin_edit_activity, true);
             SharedPreferences.Editor editor = this.PluginPreferences.edit();
             editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE, exportStartDate);
             editor.putBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO, exportStartDateAuto);
@@ -40,6 +36,10 @@ public class PluginEditActivity extends PreferenceActivity {
             editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_DESTINATION_FILE_PATH, destinationFilePath);
             editor.commit();
         }
+
+        this.getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, new PluginEditActivityPreferencesFragment())
+                .commit();
     }
 
     @Override
@@ -69,7 +69,7 @@ public class PluginEditActivity extends PreferenceActivity {
         resultIntent.putExtra("com.twofortyfouram.locale.intent.extra.BUNDLE", resultBundle);
         resultIntent.putExtra("com.twofortyfouram.locale.intent.extra.BLURB", blurb);
 
-        setResult(RESULT_OK, resultIntent);
+        this.setResult(RESULT_OK, resultIntent);
         super.finish();
     }
 }
