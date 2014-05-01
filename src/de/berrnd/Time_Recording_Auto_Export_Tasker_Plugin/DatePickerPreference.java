@@ -13,7 +13,7 @@ import java.util.Date;
 public class DatePickerPreference extends DialogPreference implements DatePicker.OnDateChangedListener {
 
     private static final String VALIDATION_EXPRESSION = "[0-9]*[0-9]*[0-9]*[0-9]-[0-1]*[0-9]-[0-3]*[0-9]";
-    private String defaultValue = "2008-01-01";
+    private String defaultValue;
 
     public DatePickerPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -27,6 +27,7 @@ public class DatePickerPreference extends DialogPreference implements DatePicker
 
     private void initialize() {
         this.setPersistent(true);
+        this.defaultValue = DateHelper.toIsoDateString(new Date());
     }
 
     @Override
@@ -61,6 +62,7 @@ public class DatePickerPreference extends DialogPreference implements DatePicker
             return;
 
         this.defaultValue = (String)defaultValue;
+        this.setSummary(this.defaultValue);
     }
 
     private int getYear() {
@@ -94,8 +96,8 @@ public class DatePickerPreference extends DialogPreference implements DatePicker
     @Override
     public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
         this.persistString(year + "-"
-                + ("0" + monthOfYear).substring(0, 2) + "-"
-                + ("0" + dayOfMonth).substring(0, 2));
+                + ("0" + monthOfYear).substring(("0" + monthOfYear).length()-2, ("0" + monthOfYear).length()) + "-"
+                + ("0" + dayOfMonth).substring(("0" + dayOfMonth).length()-2, ("0" + dayOfMonth).length()));
     }
 
     @Override
@@ -104,13 +106,21 @@ public class DatePickerPreference extends DialogPreference implements DatePicker
         if (positiveResult) {
             String result = this.getPersistedString(this.defaultValue);
 
-            this.setTitle(this.getTitle());
-            this.setSummary(result);
             SharedPreferences.Editor editor = this.getEditor();
             editor.putString(this.getKey(), result);
 
             this.callChangeListener(result);
         }
+    }
+
+    @Override
+    public void setSummary(CharSequence summary) {
+        String currentValue = this.getPersistedString(this.defaultValue);
+
+        if (currentValue == null)
+            super.setSummary("");
+        else
+            super.setSummary(DateHelper.toSystemLocaleString(DateHelper.fromIsoDate(currentValue)));
     }
 
 }

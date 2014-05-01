@@ -1,5 +1,6 @@
 package de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,6 +37,10 @@ public class DateHelper {
         catch (ParseException ex) { }
 
         return date;
+    }
+
+    public static String toSystemLocaleString(Date date) {
+        return DateFormat.getDateInstance().format(date);
     }
 
 }
