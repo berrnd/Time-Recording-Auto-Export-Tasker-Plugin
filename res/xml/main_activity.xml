@@ -30,7 +30,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-            android:title="@string/about_and_help">
+            android:title="@string/global_settings">
 
         <Preference
                 android:key="clear_last_export_date"
