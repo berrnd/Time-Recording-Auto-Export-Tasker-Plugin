@@ -4,6 +4,17 @@
     <string name="app_name">Zeiterfassung Auto-Export (Tasker Plugin)</string>
     <string name="main_activity_label">Zeiterfassung Export Plugin</string>
     <string name="plugin_name">Zeiterfassung Export</string>
+    <string name="common">Allgemein</string>
+    <string name="launch_tasker">Tasker öffnen</string>
+    <string name="about_and_help">Über &amp; Hilfe</string>
+    <string name="report_error">Fehler melden</string>
+    <string name="report_error_summary">Etwas funktioniert nicht richtig? Bitte beschreib das Problem und es wird behoben werden.</string>
+    <string name="request_feature">Feature vorschlagen</string>
+    <string name="request_feature_summary">Du vermisst ein Feature? Beschreibe einfach Deine Idee und sie wird vielleicht schon in der nächsten Version enthalten sein.</string>
+    <string name="global_settings">Globale Einstellungen</string>
+    <string name="clear_last_export_date">Letztes-Export-Datum zurücksetzen</string>
+    <string name="clear_last_export_date_summary">Setzt das gespeicherte Datum des letzten Exports zurück</string>
+    <string name="clear_last_export_date_cleared">Das gespeicherte Datum wurde zurückgesetzt</string>
     <string name="export_start_date">Export ab</string>
     <string name="export_end_date">Export bis</string>
     <string name="automatic">Automatisch</string>

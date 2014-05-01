@@ -2,7 +2,41 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Preference
-        android:summary="@string/main_view_information_text"/>
+    <PreferenceCategory
+        android:title="@string/common">
+
+            <Preference
+                    android:summary="@string/main_view_information_text"
+                    android:enabled="false"/>
+
+            <Preference
+                    android:key="launch_tasker"
+                    android:title="@string/launch_tasker">
+            </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/about_and_help">
+
+        <Preference
+                android:key="report_error"
+                android:title="@string/report_error"/>
+
+        <Preference
+                android:key="request_feature"
+                android:title="@string/request_feature"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/about_and_help">
+
+        <Preference
+                android:key="clear_last_export_date"
+                android:title="@string/clear_last_export_date"
+                android:summary="@string/clear_last_export_date_summary"/>
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

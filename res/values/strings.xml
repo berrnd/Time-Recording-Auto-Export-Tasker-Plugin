@@ -4,6 +4,17 @@
     <string name="app_name">Time-Recording Auto-Export (Tasker Plugin)</string>
     <string name="main_activity_label">Time-Recording Export Plugin</string>
     <string name="plugin_name">Time-Recording Export</string>
+    <string name="common">Common</string>
+    <string name="launch_tasker">Launch Tasker</string>
+    <string name="about_and_help">About &amp; Help</string>
+    <string name="report_error">Report an error</string>
+    <string name="report_error_summary">Something doesn\'t work so well? Just describe the error and it will be fixed.</string>
+    <string name="request_feature">Request a feature</string>
+    <string name="request_feature_summary">You\'re missing a feature? Just describe your idea and maybe it will be live in the next version.</string>
+    <string name="global_settings">Global settings</string>
+    <string name="clear_last_export_date">Clear last export date</string>
+    <string name="clear_last_export_date_summary">Resets the saved last export date</string>
+    <string name="clear_last_export_date_cleared">The saved date was cleared</string>
     <string name="export_start_date">Export start date</string>
     <string name="export_end_date">Export end date</string>
     <string name="automatic">Auto</string>
@@ -36,5 +47,7 @@
         <item>XLS</item>
     </string-array>
     <string name="export_format_default">XML</string>
+
+    <string name="developer_mail">bernd@berrnd.de</string>
 
 </resources>
