@@ -22,10 +22,32 @@
     <string name="export_type">Export-Typ</string>
     <string name="destination_file_path">Ausgabedatei-Pfad</string>
     <string name="export_to">Export nach</string>
-    <string name="example_export_destination_path">z. B. /sdcard/temp/timerec_output.xml</string>
+    <string name="export_to_hint">z. B. /sdcard/temp/timerec_output.xml</string>
     <string name="exported_to">exportiert nach</string>
     <string name="main_view_information_text">Dies ist ein Tasker-Plugin, es sollte unter "Plugins" im Action-Menü zu finden sein.</string>
     <string name="export_start_date_auto_info">Wenn ausgewählt, ist das Startdatum das letzte Exportdatum + 1 Tag.</string>
     <string name="export_end_date_auto_info">Wenn ausgewählt, ist das Enddatum heute.</string>
+
+    <string-array name="export_types">
+        <item>E1</item>
+        <item>E2</item>
+        <item>E3</item>
+        <item>E4</item>
+        <item>E5</item>
+        <item>E6</item>
+        <item>E7</item>
+        <item>E8</item>
+    </string-array>
+    <string name="export_type_default">E1</string>
+
+    <string-array name="export_formats">
+        <item>XML</item>
+        <item>CSV</item>
+        <item>HTML</item>
+        <item>XLS</item>
+    </string-array>
+    <string name="export_format_default">XML</string>
+
+    <string name="developer_mail">bernd@berrnd.de</string>
 
 </resources>

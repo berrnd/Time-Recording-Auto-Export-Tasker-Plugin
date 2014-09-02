@@ -43,8 +43,7 @@ public class PluginEditActivity extends PreferenceActivity {
     }
 
     @Override
-    public void finish()
-    {
+    public void finish() {
         final String exportStartDate = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE, "");
         final String exportEndDate = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE, "");
         final boolean exportStartDateAuto = this.PluginPreferences.getBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO, true);

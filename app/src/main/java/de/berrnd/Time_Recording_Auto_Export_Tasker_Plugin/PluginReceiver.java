@@ -66,8 +66,7 @@ public class PluginReceiver extends BroadcastReceiver {
 
                 try {
                     FileHelper.copyFile(file, new File(destinationFilePath));
-                }
-                catch (IOException ex) {
+                } catch (IOException ex) {
                     //TODO
                 }
             }

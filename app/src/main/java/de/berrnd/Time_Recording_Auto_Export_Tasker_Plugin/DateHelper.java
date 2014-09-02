@@ -8,8 +8,7 @@ import java.util.Date;
 
 public class DateHelper {
 
-    public static Date addDays(Date date, int days)
-    {
+    public static Date addDays(Date date, int days) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.DATE, days);
@@ -33,8 +32,8 @@ public class DateHelper {
         Date date = new Date();
         try {
             date = dateFormat.parse(isoDate);
+        } catch (ParseException ex) {
         }
-        catch (ParseException ex) { }
 
         return date;
     }

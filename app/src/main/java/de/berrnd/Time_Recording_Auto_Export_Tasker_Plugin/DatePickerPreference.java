@@ -44,8 +44,7 @@ public class DatePickerPreference extends DialogPreference implements DatePicker
                     DateHelper.getDatePart(today, Calendar.MONTH),
                     DateHelper.getDatePart(today, Calendar.DAY_OF_MONTH),
                     this);
-        }
-        else
+        } else
             picker.init(y, m, d, this);
 
         return picker;
@@ -61,7 +60,7 @@ public class DatePickerPreference extends DialogPreference implements DatePicker
         if (!(this.defaultValue).matches(VALIDATION_EXPRESSION))
             return;
 
-        this.defaultValue = (String)defaultValue;
+        this.defaultValue = (String) defaultValue;
         this.setSummary(this.defaultValue);
     }
 

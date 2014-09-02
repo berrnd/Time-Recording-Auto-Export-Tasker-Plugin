@@ -30,18 +30,15 @@ public class MainActivityPreferencesFragment extends PreferenceFragment {
                     this.getResources().getString(R.string.app_name) + ": Feature Request",
                     String.format("\n\n---\n%s", this.getAppAndSystemInfosText()),
                     this.getActivity());
-        }
-        else if (preference.getKey().equals("report_error")) {
+        } else if (preference.getKey().equals("report_error")) {
             MailHelper.ComposeTextMail(
                     this.getResources().getString(R.string.developer_mail),
                     this.getResources().getString(R.string.app_name) + ": Error Report",
                     String.format("\n\n---\n%s", this.getAppAndSystemInfosText()),
                     this.getActivity());
-        }
-        else if (preference.getKey().equals("launch_tasker")) {
+        } else if (preference.getKey().equals("launch_tasker")) {
             this.startActivity(this.getActivity().getPackageManager().getLaunchIntentForPackage("net.dinglisch.android.taskerm"));
-        }
-        else if (preference.getKey().equals("clear_last_export_date")) {
+        } else if (preference.getKey().equals("clear_last_export_date")) {
             SharedPreferences settings = this.getActivity().getSharedPreferences(Constants.SHARED_SETTINGS_COMMON, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
             editor.putString(Constants.SETTING_LAST_EXPORT, DateHelper.toIsoDateString(new Date()));
@@ -61,9 +58,8 @@ public class MainActivityPreferencesFragment extends PreferenceFragment {
         sb.append("Device/App info:\n");
         try {
             sb.append(String.format("App Version: %s\n", this.getActivity().getPackageManager().getPackageInfo(this.getActivity().getPackageName(), 0).versionName));
+        } catch (PackageManager.NameNotFoundException ex) {
         }
-        catch (PackageManager.NameNotFoundException ex)
-        { }
         sb.append(String.format("Model: %s (%s)\n", Build.MODEL, Build.MANUFACTURER));
         sb.append(String.format("Brand: %s\n", Build.BRAND));
         sb.append(String.format("Android Version: %s (SDK %d)\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));

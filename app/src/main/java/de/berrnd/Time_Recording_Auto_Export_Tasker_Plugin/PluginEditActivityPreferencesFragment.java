@@ -18,7 +18,7 @@ public class PluginEditActivityPreferencesFragment extends PreferenceFragment im
                 .registerOnSharedPreferenceChangeListener(this);
 
         Map<String, ?> keys = this.getPreferenceScreen().getSharedPreferences().getAll();
-        for(Map.Entry<String,?> entry : keys.entrySet()){
+        for (Map.Entry<String, ?> entry : keys.entrySet()) {
             this.onSharedPreferenceChanged(this.getPreferenceScreen().getSharedPreferences(), entry.getKey());
         }
     }
@@ -30,8 +30,7 @@ public class PluginEditActivityPreferencesFragment extends PreferenceFragment im
                 || key.equals(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE)
                 || key.equals(Constants.PLUGIN_SETTINGS_EXPORT_FORMAT)
                 || key.equals(Constants.PLUGIN_SETTINGS_EXPORT_TYPE)
-                || key.equals(Constants.PLUGIN_SETTINGS_EXPORT_DESTINATION_FILE_PATH))
-        {
+                || key.equals(Constants.PLUGIN_SETTINGS_EXPORT_DESTINATION_FILE_PATH)) {
             Preference connectionPref = this.findPreference(key);
             connectionPref.setSummary(sharedPreferences.getString(key, ""));
         }
