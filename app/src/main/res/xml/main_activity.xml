@@ -32,10 +32,9 @@
     <PreferenceCategory
             android:title="@string/global_settings">
 
-        <Preference
-                android:key="clear_last_export_date"
-                android:title="@string/clear_last_export_date"
-                android:summary="@string/clear_last_export_date_summary"/>
+        <de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin.DatePickerPreference
+            android:key="LAST_EXPORT"
+            android:title="@string/change_last_export_date"/>
 
     </PreferenceCategory>
 

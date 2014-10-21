@@ -94,6 +94,7 @@ public class DatePickerPreference extends DialogPreference implements DatePicker
 
     @Override
     public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        monthOfYear++;
         this.persistString(year + "-"
                 + ("0" + monthOfYear).substring(("0" + monthOfYear).length() - 2, ("0" + monthOfYear).length()) + "-"
                 + ("0" + dayOfMonth).substring(("0" + dayOfMonth).length() - 2, ("0" + dayOfMonth).length()));

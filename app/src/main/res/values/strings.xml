@@ -27,6 +27,7 @@
     <string name="main_view_information_text">This is a tasker plugin, you should find me in the action menu under "Plugins".</string>
     <string name="export_start_date_auto_info">If this is checked, start date will be last export date + 1 day.</string>
     <string name="export_end_date_auto_info">If this is checked, end date will be today.</string>
+    <string name="change_last_export_date">Change last export date</string>
 
     <string-array name="export_types">
         <item>E1</item>

@@ -1,6 +1,5 @@
 package de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -9,17 +8,23 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.util.DisplayMetrics;
-import android.widget.Toast;
 
-import java.util.Date;
+import java.util.Map;
 
-public class MainActivityPreferencesFragment extends PreferenceFragment {
+public class MainActivityPreferencesFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         this.addPreferencesFromResource(R.xml.main_activity);
+        this.getPreferenceScreen().getSharedPreferences()
+                .registerOnSharedPreferenceChangeListener(this);
+
+        Map<String, ?> keys = this.getPreferenceScreen().getSharedPreferences().getAll();
+        for (Map.Entry<String, ?> entry : keys.entrySet()) {
+            this.onSharedPreferenceChanged(this.getPreferenceScreen().getSharedPreferences(), entry.getKey());
+        }
     }
 
     @Override
@@ -38,16 +43,32 @@ public class MainActivityPreferencesFragment extends PreferenceFragment {
                     this.getActivity());
         } else if (preference.getKey().equals("launch_tasker")) {
             this.startActivity(this.getActivity().getPackageManager().getLaunchIntentForPackage("net.dinglisch.android.taskerm"));
-        } else if (preference.getKey().equals("clear_last_export_date")) {
-            SharedPreferences settings = this.getActivity().getSharedPreferences(Constants.SHARED_SETTINGS_COMMON, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putString(Constants.SETTING_LAST_EXPORT, DateHelper.toIsoDateString(new Date()));
-            editor.commit();
-
-            Toast.makeText(this.getActivity(), this.getResources().getString(R.string.clear_last_export_date_cleared), Toast.LENGTH_LONG).show();
         }
 
         return true;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.getPreferenceScreen().getSharedPreferences()
+                .registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        //Display the current setting in summary-text for these settings
+        if (key.equals(Constants.SETTING_LAST_EXPORT)) {
+            Preference connectionPref = this.findPreference(key);
+            connectionPref.setSummary(sharedPreferences.getString(key, ""));
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        this.getPreferenceScreen().getSharedPreferences()
+                .unregisterOnSharedPreferenceChangeListener(this);
     }
 
     private String getAppAndSystemInfosText() {
