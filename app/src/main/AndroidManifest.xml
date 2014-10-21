@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin"
-    android:versionCode="6"
-    android:versionName="1.2"
     android:installLocation="internalOnly">
 
     <supports-screens
@@ -11,8 +9,6 @@
         android:normalScreens="true"
         android:smallScreens="true"
         android:xlargeScreens="true" />
-
-    <uses-sdk android:minSdkVersion="14"/>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
