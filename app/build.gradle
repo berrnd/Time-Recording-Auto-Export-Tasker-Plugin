@@ -8,8 +8,8 @@ android {
         applicationId "de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin"
         minSdkVersion 10
         targetSdkVersion 20
-        versionCode 7
-        versionName "1.3"
+        versionCode 8
+        versionName "1.4"
     }
     buildTypes {
         release {
