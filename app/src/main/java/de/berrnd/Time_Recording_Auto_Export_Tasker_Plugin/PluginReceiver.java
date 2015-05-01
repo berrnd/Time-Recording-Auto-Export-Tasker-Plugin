@@ -41,7 +41,7 @@ public class PluginReceiver extends BroadcastReceiver {
             exportEndDate = DateHelper.toIsoDateString(new Date());
 
         this.doExport(context, exportStartDate, exportEndDate, exportType, exportFormat, destinationFilePath);
-        Toast.makeText(context, String.format("%s %s %s", exportFormat, context.getResources().getString(R.string.exported_to), destinationFilePath), Toast.LENGTH_LONG).show();
+        Toast.makeText(context, String.format("%s %s %s (%s - %s)", exportFormat, context.getResources().getString(R.string.exported_to), destinationFilePath, exportStartDate, exportEndDate), Toast.LENGTH_LONG).show();
 
         if (!notSetLastExportDate) {
             SharedPreferences.Editor editor = settings.edit();

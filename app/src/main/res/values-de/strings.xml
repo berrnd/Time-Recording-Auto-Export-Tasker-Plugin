@@ -24,17 +24,17 @@
     <string name="export_to">Export nach</string>
     <string name="export_to_hint">z. B. /sdcard/temp/timerec_output.xml</string>
     <string name="exported_to">exportiert nach</string>
-    <string name="main_view_information_text">Dies ist ein Tasker-Plugin, es sollte unter "Plugins" im Action-Menü zu finden sein.</string>
-    <string name="export_start_date_auto_info">Wenn ausgewählt, ist das Startdatum das letzte Exportdatum + 1 Tag.</string>
-    <string name="export_end_date_auto_info">Wenn ausgewählt, ist das Enddatum heute.</string>
+    <string name="main_view_information_text">Dies ist ein Tasker-Plugin, es sollte unter "Plugins" im Action-Menü zu finden sein</string>
+    <string name="export_start_date_auto_info">Wenn ausgewählt, ist das Startdatum das letzte Exportdatum + 1 Tag</string>
+    <string name="export_end_date_auto_info">Wenn ausgewählt, ist das Enddatum heute</string>
     <string name="change_last_export_date">Datum des letzten Exports ändern</string>
     <string name="export_start_parameters">Parameter Export-Ab</string>
     <string name="export_end_parameters">Parameter Export-Bis</string>
     <string name="export_common_parameters">Parameter Format/Ziel</string>
     <string name="today">Heute</string>
-    <string name="export_start_date_today_info">Wenn ausgewählt, ist das Startdatum heute.</string>
+    <string name="export_start_date_today_info">Wenn ausgewählt, ist das Startdatum heute</string>
     <string name="not_set_last_export_date">Letztes-Exportdatum nicht setzen</string>
-    <string name="not_set_last_export_date_info">Wenn ausgewählt, wird das Datum des letzten Exports nicht gesetzt/gespeichert.</string>
+    <string name="not_set_last_export_date_info">Wenn ausgewählt, wird das Datum des letzten Exports nicht gesetzt/gespeichert</string>
 
     <string-array name="export_types">
         <item>E1</item>
