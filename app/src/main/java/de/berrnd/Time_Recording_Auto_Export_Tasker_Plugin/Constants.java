@@ -15,6 +15,7 @@ public class Constants {
     static final String BUNDLE_EXTRA_EXPORT_FORMAT = "BUNDLE_EXTRA_EXPORT_FORMAT";
     static final String BUNDLE_EXTRA_EXPORT_TYPE = "BUNDLE_EXTRA_EXPORT_TYPE";
     static final String BUNDLE_EXTRA_EXPORT_DESTINATION_FILE_PATH = "BUNDLE_EXTRA_EXPORT_DESTINATION_FILE_PATH";
+    static final String BUNDLE_EXTRA_EXPORT_NOT_SET_LAST_EXPORT_DATE = "BUNDLE_EXTRA_NOT_SET_LAST_EXPORT_DATE";
 
     //Plugin instance settings
     static final String PLUGIN_SETTINGS_EXPORT_START_DATE = "pref_export_start_date";
@@ -25,5 +26,6 @@ public class Constants {
     static final String PLUGIN_SETTINGS_EXPORT_FORMAT = "pref_export_format";
     static final String PLUGIN_SETTINGS_EXPORT_TYPE = "pref_export_type";
     static final String PLUGIN_SETTINGS_EXPORT_DESTINATION_FILE_PATH = "pref_export_to";
+    static final String PLUGIN_SETTINGS_EXPORT_NOT_SET_LAST_EXPORT_DATE = "pref_export_not_set_last_export_date";
 
 }

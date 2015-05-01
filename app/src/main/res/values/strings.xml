@@ -33,6 +33,8 @@
     <string name="export_common_parameters">Parameter format/destination</string>
     <string name="today">Today</string>
     <string name="export_start_date_today_info">If this is checked, start date will be today.</string>
+    <string name="not_set_last_export_date">Don\'t set last export date</string>
+    <string name="not_set_last_export_date_info">If this is checked, the last export date will not be set/remembered.</string>
 
     <string-array name="export_types">
         <item>E1</item>

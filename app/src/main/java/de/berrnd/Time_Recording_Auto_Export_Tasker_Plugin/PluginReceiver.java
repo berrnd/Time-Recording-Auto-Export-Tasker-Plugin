@@ -29,6 +29,7 @@ public class PluginReceiver extends BroadcastReceiver {
         String exportFormat = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_FORMAT);
         String exportType = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_TYPE);
         String destinationFilePath = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_DESTINATION_FILE_PATH);
+        boolean notSetLastExportDate = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_NOT_SET_LAST_EXPORT_DATE);
 
         if (exportStartDateAuto)
             exportStartDate = DateHelper.toIsoDateString(DateHelper.addDays(DateHelper.fromIsoDate(lastExport), 1));
@@ -42,9 +43,11 @@ public class PluginReceiver extends BroadcastReceiver {
         this.doExport(context, exportStartDate, exportEndDate, exportType, exportFormat, destinationFilePath);
         Toast.makeText(context, String.format("%s %s %s", exportFormat, context.getResources().getString(R.string.exported_to), destinationFilePath), Toast.LENGTH_LONG).show();
 
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(Constants.SETTING_LAST_EXPORT, exportEndDate);
-        editor.commit();
+        if (!notSetLastExportDate) {
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString(Constants.SETTING_LAST_EXPORT, exportEndDate);
+            editor.commit();
+        }
     }
 
     private void doExport(Context context, String dateFrom, String dateTo, String exportType, String exportFormat, final String destinationFilePath) {

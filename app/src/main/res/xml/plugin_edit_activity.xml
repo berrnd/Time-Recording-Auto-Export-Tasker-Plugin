@@ -66,4 +66,10 @@
 
     </PreferenceCategory>
 
+    <CheckBoxPreference
+        android:key="pref_export_not_set_last_export_date"
+        android:title="@string/not_set_last_export_date"
+        android:summary="@string/not_set_last_export_date_info"
+        android:defaultValue="false"/>
+
 </PreferenceScreen>

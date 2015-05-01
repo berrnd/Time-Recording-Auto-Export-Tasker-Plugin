@@ -26,6 +26,7 @@ public class PluginEditActivity extends PreferenceActivity {
             final String exportFormat = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_FORMAT);
             final String exportType = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_TYPE);
             final String destinationFilePath = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_DESTINATION_FILE_PATH);
+            boolean notSetLastExportDate = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_NOT_SET_LAST_EXPORT_DATE);
 
             SharedPreferences.Editor editor = this.PluginPreferences.edit();
             editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE, exportStartDate);
@@ -36,6 +37,7 @@ public class PluginEditActivity extends PreferenceActivity {
             editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_FORMAT, exportFormat);
             editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_TYPE, exportType);
             editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_DESTINATION_FILE_PATH, destinationFilePath);
+            editor.putBoolean(Constants.PLUGIN_SETTINGS_EXPORT_NOT_SET_LAST_EXPORT_DATE, notSetLastExportDate);
             editor.commit();
         }
 
@@ -54,6 +56,7 @@ public class PluginEditActivity extends PreferenceActivity {
         final String exportFormat = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_FORMAT, "");
         final String exportType = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_TYPE, "");
         final String destinationFilePath = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_DESTINATION_FILE_PATH, "");
+        final boolean notSetLastExportDate = this.PluginPreferences.getBoolean(Constants.PLUGIN_SETTINGS_EXPORT_NOT_SET_LAST_EXPORT_DATE, false);
 
         final String blurb = String.format("%s %s %s", exportFormat, getResources().getString(R.string.export_to), destinationFilePath);
 
@@ -68,6 +71,7 @@ public class PluginEditActivity extends PreferenceActivity {
         resultBundle.putString(Constants.BUNDLE_EXTRA_EXPORT_FORMAT, exportFormat);
         resultBundle.putString(Constants.BUNDLE_EXTRA_EXPORT_TYPE, exportType);
         resultBundle.putString(Constants.BUNDLE_EXTRA_EXPORT_DESTINATION_FILE_PATH, destinationFilePath);
+        resultBundle.putBoolean(Constants.BUNDLE_EXTRA_EXPORT_NOT_SET_LAST_EXPORT_DATE, notSetLastExportDate);
 
         resultIntent.putExtra("com.twofortyfouram.locale.intent.extra.BUNDLE", resultBundle);
         resultIntent.putExtra("com.twofortyfouram.locale.intent.extra.BLURB", blurb);
