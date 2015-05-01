@@ -24,6 +24,7 @@ public class PluginReceiver extends BroadcastReceiver {
         String exportStartDate = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_START_DATE);
         String exportEndDate = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_END_DATE);
         boolean exportStartDateAuto = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_START_DATE_AUTO);
+        boolean exportStartDateToday = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_START_DATE_TODAY);
         boolean exportEndDateAuto = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_END_DATE_AUTO);
         String exportFormat = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_FORMAT);
         String exportType = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_TYPE);
@@ -31,6 +32,9 @@ public class PluginReceiver extends BroadcastReceiver {
 
         if (exportStartDateAuto)
             exportStartDate = DateHelper.toIsoDateString(DateHelper.addDays(DateHelper.fromIsoDate(lastExport), 1));
+
+        if (exportStartDateToday)
+            exportStartDate = DateHelper.toIsoDateString(new Date());
 
         if (exportEndDateAuto)
             exportEndDate = DateHelper.toIsoDateString(new Date());

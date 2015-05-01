@@ -31,6 +31,8 @@
     <string name="export_start_parameters">Parameter Export-Ab</string>
     <string name="export_end_parameters">Parameter Export-Bis</string>
     <string name="export_common_parameters">Parameter Format/Ziel</string>
+    <string name="today">Heute</string>
+    <string name="export_start_date_today_info">Wenn ausgewählt, ist das Startdatum heute.</string>
 
     <string-array name="export_types">
         <item>E1</item>

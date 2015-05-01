@@ -12,10 +12,16 @@
             android:defaultValue="true"
             android:disableDependentsState="true"/>
 
+        <CheckBoxPreference
+            android:key="pref_export_start_date_today"
+            android:title="@string/today"
+            android:summary="@string/export_start_date_today_info"
+            android:defaultValue="false"
+            android:disableDependentsState="true"/>
+
         <de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin.DatePickerPreference
             android:key="pref_export_start_date"
-            android:title="@string/export_start_date"
-            android:dependency="pref_export_start_date_auto"/>
+            android:title="@string/export_start_date"/>
 
     </PreferenceCategory>
 

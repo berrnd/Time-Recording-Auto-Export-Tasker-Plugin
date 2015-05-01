@@ -10,6 +10,7 @@ public class Constants {
     static final String BUNDLE_EXTRA_EXPORT_START_DATE = "BUNDLE_EXTRA_EXPORT_START_DATE";
     static final String BUNDLE_EXTRA_EXPORT_END_DATE = "BUNDLE_EXTRA_EXPORT_END_DATE";
     static final String BUNDLE_EXTRA_EXPORT_START_DATE_AUTO = "BUNDLE_EXTRA_EXPORT_START_DATE_AUTO";
+    static final String BUNDLE_EXTRA_EXPORT_START_DATE_TODAY = "BUNDLE_EXTRA_EXPORT_START_DATE_TODAY";
     static final String BUNDLE_EXTRA_EXPORT_END_DATE_AUTO = "BUNDLE_EXTRA_EXPORT_END_DATE_AUTO";
     static final String BUNDLE_EXTRA_EXPORT_FORMAT = "BUNDLE_EXTRA_EXPORT_FORMAT";
     static final String BUNDLE_EXTRA_EXPORT_TYPE = "BUNDLE_EXTRA_EXPORT_TYPE";
@@ -19,6 +20,7 @@ public class Constants {
     static final String PLUGIN_SETTINGS_EXPORT_START_DATE = "pref_export_start_date";
     static final String PLUGIN_SETTINGS_EXPORT_END_DATE = "pref_export_end_date";
     static final String PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO = "pref_export_start_date_auto";
+    static final String PLUGIN_SETTINGS_EXPORT_START_DATE_TODAY = "pref_export_start_date_today";
     static final String PLUGIN_SETTINGS_EXPORT_END_DATE_AUTO = "pref_export_end_date_auto";
     static final String PLUGIN_SETTINGS_EXPORT_FORMAT = "pref_export_format";
     static final String PLUGIN_SETTINGS_EXPORT_TYPE = "pref_export_type";

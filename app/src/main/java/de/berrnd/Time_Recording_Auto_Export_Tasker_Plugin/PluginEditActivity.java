@@ -21,6 +21,7 @@ public class PluginEditActivity extends PreferenceActivity {
             final String exportStartDate = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_START_DATE);
             final String exportEndDate = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_END_DATE);
             final boolean exportStartDateAuto = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_START_DATE_AUTO);
+            final boolean exportStartDateToday = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_START_DATE_TODAY);
             final boolean exportEndDateAuto = pluginBundle.getBoolean(Constants.BUNDLE_EXTRA_EXPORT_END_DATE_AUTO);
             final String exportFormat = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_FORMAT);
             final String exportType = pluginBundle.getString(Constants.BUNDLE_EXTRA_EXPORT_TYPE);
@@ -29,6 +30,7 @@ public class PluginEditActivity extends PreferenceActivity {
             SharedPreferences.Editor editor = this.PluginPreferences.edit();
             editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE, exportStartDate);
             editor.putBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO, exportStartDateAuto);
+            editor.putBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_TODAY, exportStartDateToday);
             editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE, exportEndDate);
             editor.putBoolean(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE_AUTO, exportEndDateAuto);
             editor.putString(Constants.PLUGIN_SETTINGS_EXPORT_FORMAT, exportFormat);
@@ -47,6 +49,7 @@ public class PluginEditActivity extends PreferenceActivity {
         final String exportStartDate = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE, "");
         final String exportEndDate = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE, "");
         final boolean exportStartDateAuto = this.PluginPreferences.getBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO, true);
+        final boolean exportStartDateToday = this.PluginPreferences.getBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_TODAY, true);
         final boolean exportEndDateAuto = this.PluginPreferences.getBoolean(Constants.PLUGIN_SETTINGS_EXPORT_END_DATE_AUTO, true);
         final String exportFormat = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_FORMAT, "");
         final String exportType = this.PluginPreferences.getString(Constants.PLUGIN_SETTINGS_EXPORT_TYPE, "");
@@ -60,6 +63,7 @@ public class PluginEditActivity extends PreferenceActivity {
         resultBundle.putString(Constants.BUNDLE_EXTRA_EXPORT_START_DATE, exportStartDate);
         resultBundle.putString(Constants.BUNDLE_EXTRA_EXPORT_END_DATE, exportEndDate);
         resultBundle.putBoolean(Constants.BUNDLE_EXTRA_EXPORT_START_DATE_AUTO, exportStartDateAuto);
+        resultBundle.putBoolean(Constants.BUNDLE_EXTRA_EXPORT_START_DATE_TODAY, exportStartDateToday);
         resultBundle.putBoolean(Constants.BUNDLE_EXTRA_EXPORT_END_DATE_AUTO, exportEndDateAuto);
         resultBundle.putString(Constants.BUNDLE_EXTRA_EXPORT_FORMAT, exportFormat);
         resultBundle.putString(Constants.BUNDLE_EXTRA_EXPORT_TYPE, exportType);

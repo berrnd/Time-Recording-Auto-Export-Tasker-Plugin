@@ -2,6 +2,7 @@ package de.berrnd.Time_Recording_Auto_Export_Tasker_Plugin;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 
@@ -33,6 +34,25 @@ public class PluginEditActivityPreferencesFragment extends PreferenceFragment im
                 || key.equals(Constants.PLUGIN_SETTINGS_EXPORT_DESTINATION_FILE_PATH)) {
             Preference connectionPref = this.findPreference(key);
             connectionPref.setSummary(sharedPreferences.getString(key, ""));
+        }
+
+        //Multiple dependent checkbox/datepicker enabled/disabled handling
+        if (key.equals(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO)
+                || key.equals(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_TODAY)) {
+            boolean dependentCheckboxStartDateAuto = sharedPreferences.getBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO, false);
+            boolean dependentCheckboxStartDateToday = sharedPreferences.getBoolean(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_TODAY, false);
+            boolean datePickerStartDateEnabled = !dependentCheckboxStartDateAuto && !dependentCheckboxStartDateToday;
+            this.findPreference(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE).setEnabled(datePickerStartDateEnabled);
+
+            if (key.equals(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO) && dependentCheckboxStartDateAuto) {
+                CheckBoxPreference pref = (CheckBoxPreference) this.findPreference(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_TODAY);
+                pref.setChecked(false);
+            }
+
+            if (key.equals(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_TODAY) && dependentCheckboxStartDateToday) {
+                CheckBoxPreference pref = (CheckBoxPreference) this.findPreference(Constants.PLUGIN_SETTINGS_EXPORT_START_DATE_AUTO);
+                pref.setChecked(false);
+            }
         }
     }
 
