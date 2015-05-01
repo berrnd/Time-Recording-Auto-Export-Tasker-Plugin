@@ -28,6 +28,9 @@
     <string name="export_start_date_auto_info">If this is checked, start date will be last export date + 1 day.</string>
     <string name="export_end_date_auto_info">If this is checked, end date will be today.</string>
     <string name="change_last_export_date">Change last export date</string>
+    <string name="export_start_parameters">Parameter Export-From</string>
+    <string name="export_end_parameters">Parameter Export-To</string>
+    <string name="export_common_parameters">Parameter format/destination</string>
 
     <string-array name="export_types">
         <item>E1</item>
